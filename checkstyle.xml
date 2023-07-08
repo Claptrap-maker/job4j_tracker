@@ -10,6 +10,7 @@
 
     <!-- Checks for Size Violations.                    -->
     <!-- See http://checkstyle.sf.net/config_sizes.html -->
+    <!-- Не более 2000 строк в классе                   -->
     <module name="FileLength"/>
 
     <!-- Checks for Headers                                -->
@@ -19,8 +20,10 @@
     <!--   <property name="fileExtensions" value="java"/> -->
     <!-- </module> -->
 
+    <!-- Responsible for walking an abstract syntax tree and notifying interested checks at each node -->
     <module name="TreeWalker">
 
+        <!-- Проверяет, что методы, конструкторы и переменные отделены друг от друга только одной пустой строкой -->
         <module name="EmptyLineSeparator"> <!-- Java Style Guide: Source file structure -->
             <property name="tokens" value="
             CLASS_DEF, ENUM_DEF, INTERFACE_DEF, CTOR_DEF, STATIC_INIT, INSTANCE_INIT, VARIABLE_DEF, METHOD_DEF"/>
@@ -46,10 +49,12 @@
         <!-- Checks for Size Violations.                    -->
         <!-- See http://checkstyle.sf.net/config_sizes.html -->
         <!--<module name="LineLength"/>-->
+        <!-- В методе не более 100 строк -->
         <module name="MethodLength">
             <property name="tokens" value="METHOD_DEF"/>
             <property name="max" value="100"/>
         </module>
+        <!-- Может быть задано в методе не более 7 параметров -->
         <module name="ParameterNumber"/>
 
         <!-- Checks for whitespace                               -->

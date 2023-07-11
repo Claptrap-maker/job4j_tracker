@@ -19,7 +19,7 @@ public class Library {
             System.out.println(books[i].getTitle() + " " + books[i].getPages());
         }
         for (int i = 0; i < books.length; i++) {
-            if (books[i].getTitle().equals("Clean Code")) {
+            if ("Clean Code".equals(books[i].getTitle())) {
                 System.out.println(books[i].getTitle() + " " + books[i].getPages());
             }
         }

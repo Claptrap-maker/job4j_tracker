@@ -8,12 +8,9 @@ public class Tracker {
     private int size = 0;
 
     public Item add(Item item) {
-        if (item != null) {
-            item.setId(ids++);
-            items[size++] = item;
-            return item;
-        }
-        return null;
+        item.setId(ids++);
+        items[size++] = item;
+        return item;
     }
 
     public Item[] findAll() {
@@ -39,11 +36,9 @@ public class Tracker {
     public Item[] findByName(String key) {
         Item[] result = new Item[size];
         int counter = 0;
-        if (key != null) {
-            for (int i = 0; i < size; i++) {
-                if (items[i].getName().equals(key)) {
-                    result[counter++] = items[i];
-                }
+        for (int i = 0; i < size; i++) {
+            if (items[i].getName().equals(key)) {
+                result[counter++] = items[i];
             }
         }
         return Arrays.copyOf(result, counter);

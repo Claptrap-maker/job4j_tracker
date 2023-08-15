@@ -33,10 +33,12 @@ public class ValidateInputTest {
         String[] valid = new String[] {"0", "1", "4", "1", "6"};
         Input in = new StubInput(valid);
         ValidateInput input = new ValidateInput(out, in);
-        int[] actual = new int[valid.length];
-        for (int i = 0; i < valid.length; i++) {
-            actual[i] = input.askInt("Enter menu:");
-        }
+        int[] actual = new int[5];
+        actual[0] = input.askInt("Enter menu:");
+        actual[1] = input.askInt("Enter menu:");
+        actual[2] = input.askInt("Enter menu:");
+        actual[3] = input.askInt("Enter menu:");
+        actual[4] = input.askInt("Enter menu:");
         int[] expected = {0, 1, 4, 1, 6};
         assertThat(actual).containsExactly(expected);
     }

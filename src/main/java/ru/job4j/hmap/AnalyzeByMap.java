@@ -32,24 +32,12 @@ public class AnalyzeByMap {
         Map<String, Integer> map = new LinkedHashMap<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                map.putIfAbsent(subject.name(), 0);
-                if (map.containsKey(subject.name())) {
-                    map.replace(subject.name(), map.get(subject.name()) + subject.score());
-                }
+                map.put(subject.name(), map.getOrDefault(subject.name(), 0) + subject.score());
             }
         }
-        int countPupils = 0;
         List<Label> labelsBySubject = new ArrayList<>();
         for (String subjectName : map.keySet()) {
-            for (Pupil pupil : pupils) {
-                for (Subject subject : pupil.subjects()) {
-                    if (subject.name().equals(subjectName)) {
-                        countPupils++;
-                    }
-                }
-            }
-            labelsBySubject.add(new Label(subjectName, (double) map.get(subjectName) / countPupils));
-            countPupils = 0;
+            labelsBySubject.add(new Label(subjectName, (double) map.get(subjectName) / pupils.size()));
         }
         return labelsBySubject;
     }

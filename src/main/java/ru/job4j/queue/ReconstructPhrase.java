@@ -14,7 +14,8 @@ public class ReconstructPhrase {
 
     private String getEvenElements() {
         StringBuilder rsl = new StringBuilder();
-        for (int i = evenElements.size(); i > 0; i--) {
+        int size = evenElements.size();
+        for (int i = 0; i < size; i++) {
             Character number = evenElements.poll();
             if (i % 2 == 0) {
                 rsl.append(number);

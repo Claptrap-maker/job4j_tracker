@@ -2,8 +2,19 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * Класс описывает модель клиента банка
+ * @author IVANOVA JULIA
+ * @version 1.0
+ */
 public class User {
+    /**
+     * Хранение серии и номера паспорта в переменной типа String
+     */
     private String passport;
+    /**
+     * Хранение ФИО клиента в переменной типа String
+     */
     private String username;
 
     public User(String passport, String username) {

@@ -36,8 +36,8 @@ public class AnalyzeByMap {
             }
         }
         List<Label> labelsBySubject = new ArrayList<>();
-        for (String subjectName : map.keySet()) {
-            labelsBySubject.add(new Label(subjectName, (double) map.get(subjectName) / pupils.size()));
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            labelsBySubject.add(new Label(entry.getKey(), (double) entry.getValue() / pupils.size()));
         }
         return labelsBySubject;
     }
